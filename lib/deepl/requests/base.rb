@@ -51,6 +51,7 @@ module DeepL
         @http ||= begin
           http = Net::HTTP.new(uri.host, uri.port)
           http.use_ssl = uri.scheme == 'https'
+          http.read_timeout = option(:timeout) if option?(:timeout)
           http
         end
       end
