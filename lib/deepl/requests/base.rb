@@ -89,8 +89,12 @@ module DeepL
         api.configuration.host
       end
 
+      def query_options
+        options.select { |key, _value| key.to_s != "timeout" }
+      end
+
       def query_params
-        { auth_key: api.configuration.auth_key }.merge(options)
+        { auth_key: api.configuration.auth_key }.merge(query_options)
       end
     end
   end
