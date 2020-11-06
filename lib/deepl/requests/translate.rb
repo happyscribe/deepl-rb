@@ -1,7 +1,7 @@
 module DeepL
   module Requests
     class Translate < Base
-      BOOLEAN_CONVERSION = { true => '1', false => '0' }.freeze
+      BOOLEAN_CONVERSION = { true => 'true', false => 'false' }.freeze
       ARRAY_CONVERSION = ->(value) { value.is_a?(Array) ? value.join(', ') : value }.freeze
       OPTIONS_CONVERSIONS = {
         split_sentences: BOOLEAN_CONVERSION,
